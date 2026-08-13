@@ -1,0 +1,13 @@
+.DS_Store
+tmp/
+new/
+OLD*
+*.command
+Como chegar.txt
+images/Thumbs.db*
+memorial/Memorial_MarcoGerosa.docx
+memorial/Memorial_MarcoGerosa.pdf
+memorial/Research-statement.pdf
+memorial/Teaching-statement.pdf
+inovacao/
+leidobem/
