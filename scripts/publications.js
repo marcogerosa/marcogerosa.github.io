@@ -65,6 +65,7 @@
 		"FORGE": "ACM International Conference on AI Foundation Models and Software Engineering",
 		"FSE": "ACM International Conference on the Foundations of Software Engineering",
 		"HAI": "ACM International Conference on Human-Agent Interaction",
+		"HumanAISE": "Workshop on Human-Centered AI for Software Engineering",
 		"HICSS": "Hawaii International Conference on System Sciences",
 		"I3E": "IFIP Conference on E-Commerce, E-Business, and E-Government",
 		"ICITS": "International Conference on Intelligent Tutoring Systems",

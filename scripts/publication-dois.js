@@ -1,4 +1,4 @@
-/* Generated from the August 2026 CV; keys are normalized publication titles. */
+/* Generated from the September 2026 CV; keys are normalized publication titles. */
 window.publicationDois = {
   "a comparison of conversational models and humans in answering technical questions the firefox case": "10.1145/3744916.3773170",
   "a change impact analysis approach for workflow repository management": "10.1109/ICWS.2013.49",
@@ -123,6 +123,7 @@ window.publicationDois = {
   "satt tailoring code metric thresholds for different software architectures": "10.1109/SCAM.2016.19",
   "service oriented middleware for the future internet state of the art and research directions": "10.1007/s13174-011-0021-3",
   "should i stale or should i close an analysis of a bot that closes abandoned issues and pull requests": "10.1109/BotSE.2019.00018",
+  "shh don t tell them i use genai exploring how participants use generative ai in hackathons": "10.1145/3803437.3806711",
   "single or multiple conversational agents an interactional coherence comparison": "10.1145/3173574.3173765",
   "social barriers faced by newcomers placing their first contribution in open source software projects": "10.1145/2675133.2675215",
   "social metrics included in prediction models on software engineering a mapping study": "10.1145/2639490.2639505",
@@ -147,8 +148,8 @@ window.publicationDois = {
   "training the future workforce through task curation in an oss ecosystem": "10.1145/2950290.2983984",
   "tweaking association rules to optimize software change recommendations": "10.1145/3131151.3131163",
   "um estudo preliminar sobre o uso de uma arquitetura deep learning para selecao de respostas no problema de recuperacao de codigo fonte": "10.5753/vem.2019.7589",
-  "um groupware baseado no ambiente aulanet desenvolvido com componentes": "10.1145/3715669.3723108",
   "understanding and supporting the choice of an appropriate task to start with in open source software communities": "10.1109/HICSS.2015.624",
+  "understanding llms in title abstract screening from disagreements to recommendations": "10.1007/978-3-032-36587-3_16",
   "understanding programming students help seeking preferences in the era of generative ai": "10.1145/3736181.3747165",
   "unraveling the drivers of sense of belonging in software delivery teams insights from a large scale survey": "10.1145/3597503.3639119",
   "unveiling the potential of a conversational agent in developer support insights from mozillas pdf js project": "10.1145/3664646.3664758",
