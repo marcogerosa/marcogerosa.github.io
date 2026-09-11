@@ -28,11 +28,16 @@
 		[/Informática na Educação/i, "RIE"],
 		[/IEEE Latin American Transactions/i, "IEEE LATAM"],
 		[/Journal of the Brazilian Computer Society/i, "JBCS"],
+		[/Information Systems Frontiers/i, "ISF"],
 		[/Computing and Informatics/i, "CAI"],
 		[/Expert Systems with Applications/i, "ESWA"],
 		[/Computers and Education/i, "C&E"],
 		[/Open Learning Journal/i, "Open Learning"],
-		[/Service Oriented Computing and Applications/i, "SOCA"]
+		[/Service Oriented Computing and Applications/i, "SOCA"],
+		[/The Art and Science of Analyzing Software Data/i, "Book chapter"],
+		[/Advances in Computer-Supported Learning/i, "Book chapter"],
+		[/The Encyclopedia of E-Collaboration/i, "Book chapter"],
+		[/Innovations 2003.*World Innovations in Engineering Education and Research/i, "Book chapter"]
 	];
 
 	var venueFullNames = {
@@ -79,6 +84,7 @@
 		"IJCIS": "International Journal of Cooperative Information Systems",
 		"IJHCI": "International Journal of Human-Computer Interaction",
 		"IJWSR": "International Journal of Web Services Research",
+		"ISF": "Information Systems Frontiers",
 		"ISSRE": "IEEE International Symposium on Software Reliability Engineering",
 		"IST": "Information and Software Technology",
 		"ITiCSE": "ACM Conference on Innovation and Technology in Computer Science Education",
