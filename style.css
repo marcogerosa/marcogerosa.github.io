@@ -2549,76 +2549,30 @@ a:focus {
 }
 
 .publication-details {
-	display: flex;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr);
 	align-items: center;
-	gap: 6px 10px;
+	gap: 6px 12px;
 }
 
 .publication-venue {
-	position: relative;
 	display: inline-block;
 	padding: 3px 8px;
 	border-radius: 11px;
 	background: #e8f0f4;
 	color: #1a5276;
-	cursor: help;
 	font-size: 10px;
 	font-weight: bold;
 	letter-spacing: 0.02em;
+	white-space: nowrap;
 }
 
-.publication-venue[data-tooltip]::after {
-	position: absolute;
-	z-index: 20;
-	bottom: calc(100% + 7px);
-	left: 0;
-	width: max-content;
-	max-width: min(360px, calc(100vw - 48px));
-	padding: 7px 9px;
-	border-radius: 5px;
-	background: #172f3e;
-	box-shadow: 0 4px 12px rgba(18, 54, 74, 0.18);
-	color: #fff;
-	content: attr(data-tooltip);
-	font-size: 12px;
-	font-weight: normal;
-	letter-spacing: 0;
-	line-height: 1.35;
-	opacity: 0;
-	pointer-events: none;
-	text-align: left;
-	visibility: hidden;
-	white-space: normal;
-}
-
-.publication-venue[data-tooltip]:hover,
-.publication-venue[data-tooltip]:focus-visible {
-	z-index: 21;
-}
-
-.publication-venue[data-tooltip]:hover::after,
-.publication-venue[data-tooltip]:focus-visible::after {
-	opacity: 1;
-	visibility: visible;
-}
-
-.publication-venue[data-tooltip]:focus-visible {
-	outline: 2px solid #B52E10;
-	outline-offset: 2px;
-}
-
-.publication-doi-text {
-	color: #748087;
+.publication-venue-name {
+	min-width: 0;
+	color: #54636c;
 	font-size: 10px;
-	text-decoration: none;
-	word-break: break-word;
-}
-
-.publication-doi-text:hover,
-.publication-doi-text:focus {
-	color: #B32C0E;
-	text-decoration: underline;
+	font-weight: normal;
+	line-height: 1.4;
 }
 
 .publication-actions {
@@ -2685,6 +2639,12 @@ a:focus {
 
 	.publication-actions {
 		margin-top: 9px;
+	}
+
+	.publication-details {
+		grid-template-columns: 1fr;
+		gap: 5px;
+		justify-items: start;
 	}
 
 	.publication-card:hover {
@@ -3904,7 +3864,7 @@ a:focus {
 	}
 
 	.publication-authors,
-	.publication-doi-text {
+	.publication-venue-name {
 		font-size: 11px;
 	}
 
@@ -4104,7 +4064,7 @@ body {
 
 .publication-year-link,
 .publication-venue,
-.publication-doi-text,
+.publication-venue-name,
 .publication-action {
 	font-size: 13px;
 }

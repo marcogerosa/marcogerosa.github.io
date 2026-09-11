@@ -259,16 +259,9 @@
 
 		var details = createElement("div", "publication-details");
 		var venueLabel = createElement("span", "publication-venue", venue);
-		venueLabel.setAttribute("data-tooltip", venueFullName);
-		venueLabel.setAttribute("aria-label", venue + ": " + venueFullName);
-		venueLabel.setAttribute("tabindex", "0");
+		var venueName = createElement("span", "publication-venue-name", venueFullName);
 		details.appendChild(venueLabel);
-		if (doi) {
-			var doiText = createElement("a", "publication-doi-text", "DOI " + doi);
-			doiText.setAttribute("href", "https://doi.org/" + doi);
-			doiText.setAttribute("aria-label", "Open DOI record: " + doi);
-			details.appendChild(doiText);
-		}
+		details.appendChild(venueName);
 		body.appendChild(details);
 		article.appendChild(body);
 
