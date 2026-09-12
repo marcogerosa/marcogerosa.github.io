@@ -20,7 +20,7 @@
 	<meta name="twitter:title" content="Awards &amp; Honors | Marco Aurélio Gerosa" />
 	<meta name="twitter:description" content="Selected research, mentoring, teaching, service, innovation, and professional honors." />
 	<meta name="twitter:image" content="https://www.marcoagerosa.com/images/Marco_Gerosa.jpg" />
-	<link href="style.css?v=20260813c" rel="stylesheet" type="text/css" />
+	<link href="style.css?v=20260911e" rel="stylesheet" type="text/css" />
 	<script src="scripts/syze.min.js"></script>
 	<script>
 		syze.sizes(480, 600, 768, 1024);
@@ -33,15 +33,17 @@
 		gtag('js', new Date());
 		gtag('config', 'G-M0B745E5WX');
 	</script>
+	<script src="scripts/site.js?v=20260911e" defer></script>
 </head>
 
 <body>
-	<div id="wrapper">	
+	<a class="skip-link" href="#content">Skip to content</a>
+	<div id="wrapper">
 		<div class="full-width-header">
 			<div class="centralizer-wrap">
 				<div id="topbar">
 					<div id="sitename">
-						<div id="top-esq"> 
+						<div id="top-esq">
 							<a href="/">Marco Aurélio Gerosa
 							<br/>
 							<span class="subtitle">Northern Arizona University (NAU)</span></a>
@@ -56,9 +58,11 @@
 
 		<div class="centralizer-wrap">
 			<div id="sidebar">
+				<nav aria-label="Main navigation">
+				<button class="menu-toggle" type="button" aria-expanded="true" aria-controls="menu" hidden>Menu <span aria-hidden="true">☰</span></button>
 				<ul id="menu">
 					<li>
-						<h2>Menu</h2>
+						<span class="menu-heading">Menu</span>
 					</li>
 					<li>
 						<ul>
@@ -68,7 +72,7 @@
 						<li><a href="research.html">Research</a></li>
 						<li><a href="publications.html">Publications</a></li>
 						<li><a href="funding.html">Funding</a></li>
-						<li class="selected"><a href="awards.html">Awards</a></li>
+						<li class="selected"><a aria-current="page" href="awards.html">Awards</a></li>
 						<li><a href="advising.html">Advising</a></li>
 						<li><a href="teaching.html">Teaching</a></li>
 						<li><a href="talks.html">Talks</a></li>
@@ -79,8 +83,9 @@
 						</ul>
 					</li>
 				</ul>
+				</nav>
 				<br/>
-				<!--<div id="sidehighlight"> 
+				<!--<div id="sidehighlight">
 					<a href="http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=35917" target="_new"><img src="images/JISA.jpg" style="width: 107px; height: 142px"/><br/>
 					CFP: Special Issue on "Software Engineering from a Social Network Perspective". Deadline <div id="sidehighlight2">Oct 15.</div></a>
 				</div>-->
@@ -94,11 +99,11 @@
 
 			</div>
 
-			<div id="content">
+			<main id="content" tabindex="-1">
 				<div class="awards-page">
 					<header class="awards-hero">
-						<h2>Awards &amp; Honors</h2>
-						<div class="awards-updated">Last update: August 2026</div>
+						<h1 class="page-title">Awards &amp; Honors</h1>
+						<div class="awards-updated">Last update: September 2026</div>
 					</header>
 
 					<section class="awards-section" aria-labelledby="research-awards-heading">
@@ -199,7 +204,7 @@
 							<article class="award-honor-card"><span>2010-2019</span><h3>CNPq Productivity Research Fellow</h3><p>Three consecutive three-year fellowship periods from the Brazilian Council for Scientific and Technological Development.</p></article>
 							<article class="award-honor-card"><span>2017</span><h3>IEEE Senior Member</h3><p>Institute of Electrical and Electronics Engineers.</p></article>
 							<article class="award-honor-card"><span>2017</span><h3>ACM Senior Member</h3><p>Association for Computing Machinery.</p></article>
-							<article class="award-honor-card"><span>2013</span><h3>“Livre Docente”</h3><p>Title from the University of São Paulo and promotion to Associate Professor.</p></article>
+							<article class="award-honor-card"><span>2013</span><h3>“Livre Docente”</h3><p>Post-Ph.D. habilitation for senior academic rank in Brazil, awarded by the University of São Paulo.</p></article>
 						</div>
 					</section>
 
@@ -225,14 +230,14 @@
 						</ul>
 					</details>
 				</div>
-			</div>
+			</main>
 			<div class="clear"></div>
 		</div>
 
 		<div id="push"></div> <!-- needed for footer -->
 	</div> <!-- close main wrapper -->
 
-	<div id="footer">
+	<footer id="footer">
 		<div class="centralizer-wrap">
 			<div id="clustrmaps-widget"></div>
 			<div class="footerbox address">
@@ -268,14 +273,14 @@
  			<!--<div class="footerbox somenumbers">
 				<b>Some numbers:</b> <small>(07/2017)</small><br/>
 				<a href="https://scholar.google.com/citations?user=kjtuhEQAAAAJ" target="_new">H-index: 60 (Google Scholar)</a><br/>
-				<a href="publications.html">Published works: 335</a><br/>
+				<a href="publications.html">Published works: 342</a><br/>
 				<a href="advising.html">Ph.D. graduates: 13</a><br/>
 				<a href="career.html#somenumbers">More...</a><br/>
 			</div>-->
 				<!--<script type="text/javascript">var _clustrmaps = {'url' : 'http://www.ime.usp.br/~gerosa', 'user' : 1132202, 'server' : '2', 'id' : 'clustrmaps-widget', 'version' : 1, 'date' : '2014-02-13', 'lang' : 'en', 'corners' : 'square' };(function (){ var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'http://www2.clustrmaps.com/counter/map.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);})();</script><noscript><a href="http://www2.clustrmaps.com/user/5de1146aa"><img src="http://www2.clustrmaps.com/stats/maps-no_clusters/www.ime.usp.br-~gerosa-thumb.jpg" alt="Locations of visitors to this page" /></a></noscript>-->
 			<div class="clear"></div>
 		</div>
-	</div>
+	</footer>
 
 </body>
 </html>

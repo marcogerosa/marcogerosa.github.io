@@ -20,7 +20,7 @@
 	<meta name="twitter:title" content="Service | Marco Aurélio Gerosa" />
 	<meta name="twitter:description" content="Conference leadership, program committees, editorial work, grant review, and university service." />
 	<meta name="twitter:image" content="https://www.marcoagerosa.com/images/Marco_Gerosa.jpg" />
-	<link href="style.css?v=20260813c" rel="stylesheet" type="text/css" />
+	<link href="style.css?v=20260911e" rel="stylesheet" type="text/css" />
 	<script src="scripts/syze.min.js"></script>
 	<script>
 		syze.sizes(480, 600, 768, 1024);
@@ -33,15 +33,17 @@
 		gtag('js', new Date());
 		gtag('config', 'G-M0B745E5WX');
 	</script>
+	<script src="scripts/site.js?v=20260911e" defer></script>
 </head>
 
 <body>
-	<div id="wrapper">	
+	<a class="skip-link" href="#content">Skip to content</a>
+	<div id="wrapper">
 		<div class="full-width-header">
 			<div class="centralizer-wrap">
 				<div id="topbar">
 					<div id="sitename">
-						<div id="top-esq"> 
+						<div id="top-esq">
 							<a href="/">Marco Aurélio Gerosa
 							<br/>
 							<span class="subtitle">Northern Arizona University (NAU)</span></a>
@@ -56,9 +58,11 @@
 
 		<div class="centralizer-wrap">
 			<div id="sidebar">
+				<nav aria-label="Main navigation">
+				<button class="menu-toggle" type="button" aria-expanded="true" aria-controls="menu" hidden>Menu <span aria-hidden="true">☰</span></button>
 				<ul id="menu">
 					<li>
-						<h2>Menu</h2>
+						<span class="menu-heading">Menu</span>
 					</li>
 					<li>
 						<ul>
@@ -73,14 +77,15 @@
 						<li><a href="teaching.html">Teaching</a></li>
 						<li><a href="talks.html">Talks</a></li>
 						<!-- <li><a href="software.html">Software</a></li> -->
-						<li><a href="service.html" class="selected">Service</a></li>
+						<li class="selected"><a href="service.html" aria-current="page">Service</a></li>
 						<!-- <li><a href="miscellaneous.html">Miscellaneous</a></li> -->
 						<li><a href="contact.html">Contact</a></li>
 						</ul>
 					</li>
 				</ul>
+				</nav>
 				<br/>
-				<!--<div id="sidehighlight"> 
+				<!--<div id="sidehighlight">
 					<a href="http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=35917" target="_new"><img src="images/JISA.jpg" style="width: 107px; height: 142px"/><br/>
 					CFP: Special Issue on "Software Engineering from a Social Network Perspective". Deadline <div id="sidehighlight2">Oct 15.</div></a>
 				</div>-->
@@ -94,11 +99,11 @@
 
 			</div>
 
-			<div id="content">
+			<main id="content" tabindex="-1">
 				<div class="service-page">
 					<header class="service-hero">
-						<h2>Service</h2>
-						<div class="service-updated">Last update: August 2026</div>
+						<h1 class="page-title">Service</h1>
+						<div class="service-updated">Last update: September 2026</div>
 
 						<div class="service-metrics" aria-label="Service highlights">
 							<div class="service-metric"><strong>2026</strong><span>ICSE Co-Located Events Co-Chair</span></div>
@@ -190,7 +195,7 @@
 									<li><strong>IEEE Software</strong><span>Bots in Software Engineering, 2021</span></li>
 									<li><strong>Journal of the Brazilian Computer Society</strong><span>CBSoft selected papers, 2017</span></li>
 									<li><strong>Information Systems Frontiers</strong><span>Collaboration Technology, 2016</span></li>
-									<li><strong>JISA</strong><span>Software Engineering from a Social Network Perspective, 2015</span></li>
+									<li><strong>Journal of Internet Services and Applications</strong><span>Software Engineering from a Social Network Perspective, 2015</span></li>
 									<li><strong>Revista Scientia</strong><span>Groupware, 2007</span></li>
 								</ul>
 							</article>
@@ -212,7 +217,7 @@
 							<article class="service-card">
 								<h3>Northern Arizona University</h3>
 								<ul>
-									<li><strong>Faculty Status Committee</strong><span>Chair, 2020-2025; member, 2025-2026</span></li>
+									<li><strong>Faculty Status Committee</strong><span>Chair, 2020-2023 and 2024-2025; member, 2025-2026</span></li>
 									<li><strong>AI Literacy Course</strong><span>Reviewer, 2025</span></li>
 									<li><strong>AI Cluster Hire Search Committee</strong><span>Member, 2024</span></li>
 									<li><strong>Generative AI in Education Task Force</strong><span>Member, 2023</span></li>
@@ -243,17 +248,17 @@
 							<h2>Complete Service Record</h2>
 							<p>The full CV includes the complete list of committees, event reviewing, grant review, and external service.</p>
 						</div>
-						<a class="service-button" href="memorial/MarcoGerosaEnglishCV.pdf">View full CV (PDF)</a>
+						<a class="service-button" href="memorial/MarcoGerosaEnglishCV.pdf?v=20260911b">View full CV (PDF)</a>
 					</div>
 				</div>
-			</div>
+			</main>
 			<div class="clear"></div>
 		</div>
 
 		<div id="push"></div> <!-- needed for footer -->
 	</div> <!-- close main wrapper -->
 
-	<div id="footer">
+	<footer id="footer">
 		<div class="centralizer-wrap">
 			<div id="clustrmaps-widget"></div>
 			<div class="footerbox address">
@@ -286,17 +291,17 @@
 				<a href="https://scholar.google.com/citations?user=kjtuhEQAAAAJ" target="_new"><img src="images/googlescholar.gif" alt="Google Scholar" title="Google Scholar" /></a>
 				<a href="https://dl.acm.org/profile/81100523035" target="_new"><img src="images/ACM.gif" alt="ACM Digital Library" title="ACM Digital Library" /></a>
 			</div>
- 			<!--<div class="footerbox somenumbers">
+			<!--<div class="footerbox somenumbers">
 				<b>Some numbers:</b> <small>(07/2017)</small><br/>
 				<a href="https://scholar.google.com/citations?user=kjtuhEQAAAAJ" target="_new">H-index: 60 (Google Scholar)</a><br/>
-				<a href="publications.html">Published works: 335</a><br/>
+				<a href="publications.html">Published works: 342</a><br/>
 				<a href="advising.html">Ph.D. graduates: 13</a><br/>
 				<a href="career.html#somenumbers">More...</a><br/>
 			</div>-->
 				<!--<script type="text/javascript">var _clustrmaps = {'url' : 'http://www.ime.usp.br/~gerosa', 'user' : 1132202, 'server' : '2', 'id' : 'clustrmaps-widget', 'version' : 1, 'date' : '2014-02-13', 'lang' : 'en', 'corners' : 'square' };(function (){ var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'http://www2.clustrmaps.com/counter/map.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);})();</script><noscript><a href="http://www2.clustrmaps.com/user/5de1146aa"><img src="http://www2.clustrmaps.com/stats/maps-no_clusters/www.ime.usp.br-~gerosa-thumb.jpg" alt="Locations of visitors to this page" /></a></noscript>-->
 			<div class="clear"></div>
 		</div>
-	</div>
+	</footer>
 
 </body>
 </html>

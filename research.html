@@ -20,7 +20,7 @@
 	<meta name="twitter:title" content="Research | Marco Aurélio Gerosa" />
 	<meta name="twitter:description" content="Research on Human-AI software engineering, open source communities, and computing education." />
 	<meta name="twitter:image" content="https://www.marcoagerosa.com/images/Marco_Gerosa.jpg" />
-	<link href="style.css?v=20260813c" rel="stylesheet" type="text/css" />
+	<link href="style.css?v=20260912a" rel="stylesheet" type="text/css" />
 	<script src="scripts/syze.min.js"></script>
 	<script>
 		syze.sizes(480, 600, 768, 1024);
@@ -33,15 +33,17 @@
 		gtag('js', new Date());
 		gtag('config', 'G-M0B745E5WX');
 	</script>
+	<script src="scripts/site.js?v=20260911e" defer></script>
 </head>
 
 <body>
-	<div id="wrapper">	
+	<a class="skip-link" href="#content">Skip to content</a>
+	<div id="wrapper">
 		<div class="full-width-header">
 			<div class="centralizer-wrap">
 				<div id="topbar">
 					<div id="sitename">
-						<div id="top-esq"> 
+						<div id="top-esq">
 							<a href="/">Marco Aurélio Gerosa
 							<br/>
 							<span class="subtitle">Northern Arizona University (NAU)</span></a>
@@ -56,16 +58,18 @@
 
 		<div class="centralizer-wrap">
 			<div id="sidebar">
+				<nav aria-label="Main navigation">
+				<button class="menu-toggle" type="button" aria-expanded="true" aria-controls="menu" hidden>Menu <span aria-hidden="true">☰</span></button>
 				<ul id="menu">
 					<li>
-						<h2>Menu</h2>
+						<span class="menu-heading">Menu</span>
 					</li>
 					<li>
 						<ul>
 						<li><a href="/">About</a></li>
 						<li><a href="career.html">Career</a></li>
 						<li><a href="cv.html">CV</a></li>
-						<li class="selected"><a href="research.html">Research</a></li>
+						<li class="selected"><a aria-current="page" href="research.html">Research</a></li>
 						<li><a href="publications.html">Publications</a></li>
 						<li><a href="funding.html">Funding</a></li>
 						<li><a href="awards.html">Awards</a></li>
@@ -79,8 +83,9 @@
 						</ul>
 					</li>
 				</ul>
+				</nav>
 				<br/>
-				<!--<div id="sidehighlight"> 
+				<!--<div id="sidehighlight">
 					<a href="http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=35917" target="_new"><img src="images/JISA.jpg" style="width: 107px; height: 142px"/><br/>
 					CFP: Special Issue on "Software Engineering from a Social Network Perspective". Deadline <div id="sidehighlight2">Oct 15.</div></a>
 				</div>-->
@@ -94,11 +99,11 @@
 
 			</div>
 
-			<div id="content">
+			<main id="content" tabindex="-1">
 				<div class="research-page">
 					<header class="page-hero">
-						<h2>Research</h2>
-						<span class="page-updated">Last update: August 2026</span>
+						<h1 class="page-title">Research</h1>
+						<span class="page-updated">Last update: September 2026</span>
 					</header>
 
 <p class="research-lead">
@@ -109,42 +114,47 @@ My work connects artificial intelligence (AI), software engineering, and compute
 <h2>Current research themes</h2>
 <div class="research-theme-grid">
 
-<article class="research-theme-card">
+<article class="research-theme-card" id="human-ai">
 <div class="research-theme-overview"><span class="card-number">01</span><h3>Human-AI collaboration in software engineering</h3><p>Effective AI tools should strengthen human judgment, learning, and collaboration—not merely automate tasks.</p></div>
 <div class="research-theme-work"><strong>Selected Findings</strong>
 <ul class="research-theme-points">
+	<li>Output quality, practical value, and goal alignment are associated with developers’ trust in GenAI [<a href="papers/TOSEM2026_TrustGen.pdf">TOSEM’26</a>].</li>
 	<li>Project-grounded agents nearly match humans at answering developer questions, but need briefer responses [<a href="papers/ICSE2026_Firefox_Conversational_Models.pdf">ICSE’26</a>].</li>
-	<li>Developer–AI tools should offer varied interaction styles while preserving user control and trust [<a href="papers/forge25_interact.pdf">FORGE’25</a>, <a href="papers/ICSE_25_TrustGEN.pdf">ICSE’25</a>].</li>
-	<li>Workflow-integrated conversational support reduces challenges for machine-learning end-user programmers [<a href="papers/Newton.pdf">ICSE’24</a>].</li>
-	<li>Code-review bots increase merges but reduce discussion; GitHub Actions introduce tradeoffs [<a href="papers/EMSE2022Wessel.pdf">EMSE’22</a>, <a href="papers/Wessel_EMSE_Actions.pdf">EMSE’23</a>].</li>
-	<li>Context-appropriate chatbot language improves credibility and user experience [<a href="papers/TOCHI2021Chaves.pdf">TOCHI’22</a>].</li>
+	<li>Developer-AI tools need varied interaction styles and support for user control [<a href="papers/forge25_interact.pdf">FORGE’25</a>, <a href="papers/ICSE_25_TrustGEN.pdf">ICSE’25</a>].</li>
+	<li>Workflow-integrated conversational support helps ML end-user programmers [<a href="papers/Newton.pdf">ICSE’24</a>].</li>
+	<li>Code-review bots increase merges but reduce discussion; automation creates tradeoffs [<a href="papers/Wessel_EMSE_Actions.pdf">EMSE’23</a>, <a href="papers/EMSE2022Wessel.pdf">EMSE’22</a>].</li>
+	<li>Chatbot language and social characteristics shape user experience [<a href="papers/TOCHI2021Chaves.pdf">TOCHI</a>, <a href="papers/IJofHCI_Survey.pdf">IJHCI</a>].</li>
 </ul>
 </div>
 </article>
 
-<article class="research-theme-card">
-<div class="research-theme-overview"><span class="card-number">02</span><h3>Supporting Open Source Software (OSS) communities</h3><p>Sustainable OSS communities depend on equitable participation, supportive social practices, and a genuine sense of belonging.</p></div>
+<article class="research-theme-card" id="oss-communities">
+<div class="research-theme-overview"><span class="card-number">02</span><h3>Supporting Open Source Software (OSS) communities</h3><p>Sustainable OSS communities depend on participation, supportive social practices, and a genuine sense of belonging.</p></div>
 <div class="research-theme-work"><strong>Selected Findings</strong>
 <ul class="research-theme-points">
-	<li>OSS newcomers benefit from barrier-aware onboarding, mentors, and suitable tasks [<a href="papers/CSCW_2015.pdf">CSCW’15</a>, <a href="papers/ICSE2016.pdf">ICSE’16</a>, <a href="papers/EMSE_Santos23.pdf">EMSE’23</a>, <a href="papers/IST.pdf">IST’24</a>, <a href="papers/CHASE2025_mentoring.pdf">CHASE’25</a>].</li>
-	<li>Timely, context-specific interventions help prevent long-term contributor disengagement [<a href="papers/EMSE2022Calefato.pdf">EMSE’22</a>, <a href="papers/TOSEM2025_Contributor_Retention.pdf">TOSEM’25</a>].</li>
-	<li>Redesigned OSS tools can remove gender-biased barriers for women newcomers [<a href="papers/How_Gender-Biased_Tools_Shape_Newcomer_Experiences_in_OSS_Projects.pdf">TSE’20</a>].</li>
-	<li>Women’s contributions are accepted at comparable rates, yet social barriers and underrepresentation persist [<a href="papers/TOSEM2022.pdf">TOSEM’22</a>].</li>
-	<li>Flexible work, equitable recognition, mentorship, and visible role models improve women’s retention [<a href="papers/ICSESEIS2022Trinkenreich.pdf">ICSE SEIS’22</a>].</li>
-	<li>Motivations evolve, and OSS success extends beyond code contributions [<a href="papers/ICSE2021_Gerosa.pdf">ICSE’21</a>, <a href="papers/TSE2021Trinkenreich.pdf">TSE’21</a>].</li>
-	<li>Social connection and intrinsic motivation strengthen belonging in OSS communities [<a href="papers/ICSE2023___Sense_of_Virtual_Community___Linux_Kernel.pdf">ICSE’23</a>].</li>
-	<li>Interpersonal barriers reduce belonging, especially for gender minorities and disabled contributors [<a href="papers/ICSE_2025_Feeling_Welcome.pdf">ICSE’25</a>].</li>
+	<li>Identical OSS role titles can hide different duties; explicit responsibilities clarify governance [<a href="papers/CHASE2026_Governance_Roles.pdf">CHASE’26</a>].</li>
+	<li>Mentors, clear onboarding, and suitable tasks support newcomers’ participation [<a href="papers/CHASE2025_mentoring.pdf">CHASE’25</a>, <a href="papers/IST.pdf">IST’24</a>].</li>
+	<li>Contributor retention requires timely, context-specific support [<a href="papers/TOSEM2025_Contributor_Retention.pdf">TOSEM’25</a>, <a href="papers/EMSE2022Calefato.pdf">EMSE’22</a>].</li>
+	<li>Interpersonal barriers undermine belonging, especially for marginalized contributors [<a href="papers/ICSE_2025_Feeling_Welcome.pdf">ICSE’25</a>].</li>
+	<li>Social connection and intrinsic motivation strengthen belonging in OSS [<a href="papers/ICSE2023___Sense_of_Virtual_Community___Linux_Kernel.pdf">ICSE’23</a>].</li>
 </ul>
+<details class="research-more"><summary>More findings on OSS communities</summary><ul class="research-theme-points">
+	<li>Social support and tool redesign can reduce barriers for women in open source software projects [<a href="papers/TOSEM2022.pdf">TOSEM’22</a>, <a href="papers/ICSESEIS2022Trinkenreich.pdf">ICSE SEIS’22</a>, <a href="papers/How_Gender-Biased_Tools_Shape_Newcomer_Experiences_in_OSS_Projects.pdf">TSE’20</a>].</li>
+	<li>Motivations evolve, and OSS success extends beyond code contributions [<a href="papers/ICSE2021_Gerosa.pdf">ICSE’21</a>, <a href="papers/TSE2021Trinkenreich.pdf">TSE’21</a>].</li>
+	<li>Barrier-aware onboarding and task recommendations help newcomers get started [<a href="papers/EMSE_Santos23.pdf">EMSE’23</a>, <a href="papers/ICSE2016.pdf">ICSE’16</a>, <a href="papers/CSCW_2015.pdf">CSCW’15</a>].</li>
+</ul></details>
 </div>
 </article>
 
-<article class="research-theme-card">
+<article class="research-theme-card" id="computing-education">
 <div class="research-theme-overview"><span class="card-number">03</span><h3>Computer science and software engineering education</h3><p>Effective computing education combines evidence-based pedagogy, authentic software projects, structured guidance, and deliberate support for learning with AI.</p></div>
 <div class="research-theme-work"><strong>Selected Findings</strong>
 <ul class="research-theme-points">
-	<li>GenAI helps with low-risk questions, but guidance prevents shallow learning and overreliance [<a href="papers/ChatGPT_ICSE_24.pdf">ICSE’24</a>, <a href="papers/CUI2025_interaction_patterns.pdf">CUI’25</a>, <a href="papers/ICSE_CSEET_25_GenAI_Education.pdf">CSEE&amp;T’25</a>].</li>
-	<li>Gamified scaffolding makes OSS contribution more approachable and engaging [<a href="papers/VLHCC_Game_Elements.pdf">VL/HCC’24</a>, <a href="papers/ICSE2025_OSSDoorway.pdf">CSEE&amp;T’25</a>].</li>
-	<li>Authentic OSS projects build technical and social skills but require structured guidance [<a href="papers/Training_Software_Engineers_Using_Open-Source_Software_The_Professors_Perspective.pdf">CSEE&amp;T’17</a>, <a href="papers/FSE2025_Survey_Students.pdf">FSE’25</a>].</li>
+	<li>Novices treated GenAI’s responses as fixed, rarely refining prompts when explanations fell short [<a href="papers/CUI2025_interaction_patterns.pdf">CUI’25</a>].</li>
+	<li>GenAI supports learning, but guidance is needed to address overreliance [<a href="papers/ICSE_CSEET_25_GenAI_Education.pdf">CSEE&amp;T’25</a>, <a href="papers/ChatGPT_ICSE_24.pdf">ICSE’24</a>].</li>
+	<li>Gamified scaffolding helps students engage with OSS contributions [<a href="papers/ICSE2025_OSSDoorway.pdf">CSEE&amp;T’25</a>, <a href="papers/VLHCC_Game_Elements.pdf">VL/HCC’24</a>].</li>
+	<li>Authentic OSS projects develop skills but need structured guidance [<a href="papers/FSE2025_Survey_Students.pdf">FSE’25</a>, <a href="papers/Training_Software_Engineers_Using_Open-Source_Software_The_Professors_Perspective.pdf">CSEE&amp;T’17</a>].</li>
+	<li>Instructors want AI tutors that adapt step-by-step guidance to students’ needs [<a href="papers/Conversations2023___DesignFiction.pdf">CONVERSATIONS’23</a>].</li>
 	<li>Programming instructors need pedagogical knowledge beyond technical content [<a href="papers/3304221.3319776.pdf">ITiCSE’19</a>, <a href="papers/Connections_and_Influences_Among_Topics_of_Learning_How_to_Program.pdf">FIE’19</a>].</li>
 	<li>Students and instructors perceive programming challenges differently [<a href="papers/08070426.pdf">IEEE LATAM’17</a>].</li>
 </ul>
@@ -162,14 +172,17 @@ My work connects artificial intelligence (AI), software engineering, and compute
 <li><strong>Engineering</strong> Real-world problems addressed through purpose-built tools and applications.</li>
 <li><strong>Innovation</strong> New ideas and alternative ways of framing problems.</li>
 <li><strong>Quality</strong> Rigor and quality throughout the research process.</li>
-<li><strong>Multiple areas</strong> Knowledge across domains connected to uncover new problems and opportunities.</li>
+<li><strong>Interdisciplinarity</strong> Knowledge across domains connected to uncover new problems and opportunities.</li>
 </ul>
 </section>
 
 
-<section class="page-section earlier-projects">
+<section class="page-section earlier-projects" id="earlier-projects">
 <h2>Earlier research projects</h2>
 <ul id="lista">
+<li>FLOSSCoach: a portal to help newcomers overcome barriers to contributing to open source software</li>
+<li>CHOReOS/BAILE: large-scale cloud-service choreography and change-impact analysis with industry partners</li>
+<li>MyFoodScanner: a research-based application using collective intelligence to support informed food choices</li>
 <li>Groupware Workbench: A component-based product line for developing collaborative systems</li>
 <li>Arquigrafia: a social network for architecture and urbanism</li>
 <li>Smart Audio City Guide: a mobile application for blind people</li>
@@ -185,14 +198,14 @@ My work connects artificial intelligence (AI), software engineering, and compute
 				</div>
 
 
-			</div>
+			</main>
 			<div class="clear"></div>
 		</div>
 
 		<div id="push"></div> <!-- needed for footer -->
 	</div> <!-- close main wrapper -->
 
-	<div id="footer">
+	<footer id="footer">
 		<div class="centralizer-wrap">
 			<div id="clustrmaps-widget"></div>
 			<div class="footerbox address">
@@ -228,14 +241,14 @@ My work connects artificial intelligence (AI), software engineering, and compute
  			<!--<div class="footerbox somenumbers">
 				<b>Some numbers:</b> <small>(07/2017)</small><br/>
 				<a href="https://scholar.google.com/citations?user=kjtuhEQAAAAJ" target="_new">H-index: 60 (Google Scholar)</a><br/>
-				<a href="publications.html">Published works: 335</a><br/>
+				<a href="publications.html">Published works: 342</a><br/>
 				<a href="advising.html">Ph.D. graduates: 13</a><br/>
 				<a href="career.html#somenumbers">More...</a><br/>
 			</div>-->
 				<!--<script type="text/javascript">var _clustrmaps = {'url' : 'http://www.ime.usp.br/~gerosa', 'user' : 1132202, 'server' : '2', 'id' : 'clustrmaps-widget', 'version' : 1, 'date' : '2014-02-13', 'lang' : 'en', 'corners' : 'square' };(function (){ var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'http://www2.clustrmaps.com/counter/map.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);})();</script><noscript><a href="http://www2.clustrmaps.com/user/5de1146aa"><img src="http://www2.clustrmaps.com/stats/maps-no_clusters/www.ime.usp.br-~gerosa-thumb.jpg" alt="Locations of visitors to this page" /></a></noscript>-->
 			<div class="clear"></div>
 		</div>
-	</div>
+	</footer>
 
 </body>
 </html>

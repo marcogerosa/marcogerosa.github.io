@@ -195,19 +195,22 @@
 	}
 
 	function enhancePublication(item, year) {
-		var citationLink = item.querySelector("a");
+		var citationLink = item.querySelector("a, .publication-source-citation");
 		if (!citationLink) {
 			return null;
 		}
 
 		var text = clean(citationLink.textContent);
 		var yearsInCitation = text.match(/\b(?:19|20)\d{2}\b/g);
-		var publicationYear = year === "Before 2010" && yearsInCitation ? yearsInCitation[yearsInCitation.length - 1] : year;
+		var publicationYear = year === "2010 and earlier" && yearsInCitation ? yearsInCitation[yearsInCitation.length - 1] : year;
 		var quoteMatch = text.match(/[“"](.+?)[”"]/);
 		var doiMatch = text.match(/10\.\d{4,9}\/[-._;()/:A-Z0-9]+/i);
 		var title = quoteMatch ? clean(quoteMatch[1]) : text;
 		var verifiedDoi = window.publicationDois && window.publicationDois[normalizeTitle(title)];
 		var doi = verifiedDoi || (doiMatch ? doiMatch[0].replace(/[.,;]+$/g, "") : "");
+		// Preserve the CV's DOI identifier when its resolver is unavailable.
+		var doiUnavailable = item.getAttribute("data-doi-unavailable") === "true";
+		var recordHref = item.getAttribute("data-record-href") || "";
 		var authors = quoteMatch ? clean(text.slice(0, quoteMatch.index).replace(/,\s*$/, "")) : "";
 		var venueMarker = item.querySelector("strong, b");
 		var venue = getVenue(venueMarker ? venueMarker.textContent : "", text, publicationYear);
@@ -217,14 +220,14 @@
 
 		item.removeAttribute("id");
 		item.className = "publication-item";
-		item.setAttribute("data-search", normalizeTitle([title, authors, venue, doi, publicationYear].join(" ")));
+		item.setAttribute("data-search", normalizeTitle([title, authors, venue, venueFullName, doi, publicationYear].join(" ")));
 
 		var article = createElement("article", "publication-card");
 		if (isPdf) {
 			article.className += " publication-card-clickable";
 			article.setAttribute("data-pdf-href", href);
 			article.addEventListener("click", function (event) {
-				if (event.defaultPrevented || event.button !== 0 || event.target.closest("a")) {
+				if (event.defaultPrevented || event.button !== 0 || event.target.closest("a, button, input, textarea, summary") || String(window.getSelection())) {
 					return;
 				}
 
@@ -272,12 +275,30 @@
 			pdfLink.setAttribute("aria-label", "Open PDF: " + title);
 			actions.appendChild(pdfLink);
 		}
-		if (doi) {
+		if (doi && !doiUnavailable) {
 			var doiLink = createElement("a", "publication-action", "DOI");
 			doiLink.setAttribute("href", "https://doi.org/" + doi);
 			doiLink.setAttribute("aria-label", "Open DOI record: " + doi);
 			actions.appendChild(doiLink);
 		}
+		if (recordHref) {
+			var recordLink = createElement("a", "publication-action", "Record");
+			recordLink.setAttribute("href", recordHref);
+			recordLink.setAttribute("aria-label", "Open publication record: " + title);
+			actions.appendChild(recordLink);
+		}
+		var citeButton = createElement("button", "publication-action publication-cite", "Cite");
+		citeButton.type = "button";
+		citeButton.setAttribute("aria-label", "Cite: " + title);
+		citeButton.addEventListener("click", function () {
+			var citation = text.replace(/\s*DOI\s*:\s*10\.\d{4,9}\/\S+\s*\.?$/i, "").trim();
+			if (citation.indexOf(publicationYear) === -1) { citation = citation.replace(/[.,;]+$/, "") + " (" + publicationYear + ")."; }
+			if (doi) { citation += doiUnavailable ? " DOI: " + doi : " https://doi.org/" + doi; }
+			citationText.value = citation;
+			citationStatus.textContent = "";
+			citationDialog.showModal();
+		});
+		actions.appendChild(citeButton);
 		if (actions.children.length) {
 			article.appendChild(actions);
 		}
@@ -287,9 +308,46 @@
 		return item;
 	}
 
+	var citationDialog = createElement("dialog", "publication-citation-dialog");
+	citationDialog.setAttribute("aria-labelledby", "citation-dialog-title");
+	var citationTitle = createElement("h2", "", "Cite this publication");
+	citationTitle.id = "citation-dialog-title";
+	var citationText = createElement("textarea", "publication-citation-text");
+	citationText.readOnly = true;
+	citationText.setAttribute("aria-label", "Publication citation");
+	citationText.rows = 7;
+	var citationControls = createElement("div", "citation-controls");
+	var citationCopy = createElement("button", "page-button", "Copy citation");
+	citationCopy.type = "button";
+	citationCopy.setAttribute("autofocus", "");
+	var citationClose = createElement("button", "page-button secondary", "Close");
+	citationClose.type = "button";
+	var citationStatus = createElement("p", "citation-status");
+	citationStatus.setAttribute("role", "status");
+	citationCopy.addEventListener("click", function () {
+		function selectForCopy() {
+			citationText.focus();
+			citationText.select();
+			citationStatus.textContent = "Citation selected. Use your device’s Copy command.";
+		}
+		if (navigator.clipboard && window.isSecureContext) {
+			navigator.clipboard.writeText(citationText.value).then(function () {
+				citationStatus.textContent = "Citation copied.";
+			}, selectForCopy);
+		} else { selectForCopy(); }
+	});
+	citationClose.addEventListener("click", function () { citationDialog.close(); });
+	citationControls.appendChild(citationCopy);
+	citationControls.appendChild(citationClose);
+	citationDialog.appendChild(citationTitle);
+	citationDialog.appendChild(citationText);
+	citationDialog.appendChild(citationControls);
+	citationDialog.appendChild(citationStatus);
+	page.appendChild(citationDialog);
+
 	var yearHeadings = Array.prototype.filter.call(page.children, function (child) {
 		var label = clean(child.textContent);
-		return child.tagName === "H2" && (/^20\d{2}$/.test(label) || label === "Before 2010");
+		return child.tagName === "H2" && (/^(?:19|20)\d{2}$/.test(label) || label === "2010 and earlier");
 	});
 	var publicationItems = [];
 
@@ -301,7 +359,7 @@
 		}
 
 		heading.className = "publication-year";
-		heading.id = year === "Before 2010" ? "year-before-2010" : "year-" + year;
+		heading.id = year === "2010 and earlier" ? "year-2010-and-earlier" : "year-" + year;
 		list.removeAttribute("id");
 		list.className = "publication-list";
 		list.setAttribute("data-year", year);
@@ -337,10 +395,12 @@
 
 	function filterPublications() {
 		var query = normalizeTitle(search.value);
+		var terms = query.split(/\s+/).filter(Boolean);
 		var visibleCount = 0;
 
 		publicationItems.forEach(function (item) {
-			var visible = !query || item.getAttribute("data-search").indexOf(query) !== -1;
+			var searchable = item.getAttribute("data-search");
+			var visible = terms.every(function (term) { return searchable.indexOf(term) !== -1; });
 			item.hidden = !visible;
 			if (visible) {
 				visibleCount += 1;

@@ -20,7 +20,7 @@
 	<meta name="twitter:title" content="Teaching | Marco Aurélio Gerosa" />
 	<meta name="twitter:description" content="Undergraduate and graduate courses taught at NAU, USP, UCI, and other institutions." />
 	<meta name="twitter:image" content="https://www.marcoagerosa.com/images/Marco_Gerosa.jpg" />
-	<link href="style.css?v=20260813c" rel="stylesheet" type="text/css" />
+	<link href="style.css?v=20260911e" rel="stylesheet" type="text/css" />
 	<script src="scripts/syze.min.js"></script>
 	<script>
 		syze.sizes(480, 600, 768, 1024);
@@ -33,15 +33,17 @@
 		gtag('js', new Date());
 		gtag('config', 'G-M0B745E5WX');
 	</script>
+	<script src="scripts/site.js?v=20260911e" defer></script>
 </head>
 
 <body>
-	<div id="wrapper">	
+	<a class="skip-link" href="#content">Skip to content</a>
+	<div id="wrapper">
 		<div class="full-width-header">
 			<div class="centralizer-wrap">
 				<div id="topbar">
 					<div id="sitename">
-						<div id="top-esq"> 
+						<div id="top-esq">
 							<a href="/">Marco Aurélio Gerosa
 							<br/>
 							<span class="subtitle">Northern Arizona University (NAU)</span></a>
@@ -56,9 +58,11 @@
 
 		<div class="centralizer-wrap">
 			<div id="sidebar">
+				<nav aria-label="Main navigation">
+				<button class="menu-toggle" type="button" aria-expanded="true" aria-controls="menu" hidden>Menu <span aria-hidden="true">☰</span></button>
 				<ul id="menu">
 					<li>
-						<h2>Menu</h2>
+						<span class="menu-heading">Menu</span>
 					</li>
 					<li>
 						<ul>
@@ -70,7 +74,7 @@
 						<li><a href="funding.html">Funding</a></li>
 						<li><a href="awards.html">Awards</a></li>
 						<li><a href="advising.html">Advising</a></li>
-						<li class="selected"><a href="teaching.html">Teaching</a></li>
+						<li class="selected"><a aria-current="page" href="teaching.html">Teaching</a></li>
 						<li><a href="talks.html">Talks</a></li>
 						<!-- <li><a href="software.html">Software</a></li> -->
 						<li><a href="service.html">Service</a></li>
@@ -79,8 +83,9 @@
 						</ul>
 					</li>
 				</ul>
+				</nav>
 				<br/>
-				<!--<div id="sidehighlight"> 
+				<!--<div id="sidehighlight">
 					<a href="http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=35917" target="_new"><img src="images/JISA.jpg" style="width: 107px; height: 142px"/><br/>
 					CFP: Special Issue on "Software Engineering from a Social Network Perspective". Deadline <div id="sidehighlight2">Oct 15.</div></a>
 				</div>-->
@@ -94,11 +99,11 @@
 
 			</div>
 
-			<div id="content">
+			<main id="content" tabindex="-1">
 				<div class="teaching-page">
 					<header class="teaching-hero">
-						<h2>Teaching</h2>
-						<div class="teaching-updated">Last update: August 2026</div>
+						<h1 class="page-title">Teaching</h1>
+						<div class="teaching-updated">Last update: September 2026</div>
 					</header>
 
 					<section class="teaching-summary" aria-label="Teaching summary">
@@ -116,6 +121,10 @@
 									<li class="course-item">
 										<span class="course-code">CS499</span>
 										<div><strong>Scientific Evaluation of LLM Applications</strong><span>2026 · 1 offering · 24 students</span></div>
+									</li>
+									<li class="course-item">
+										<span class="course-code">CS399</span>
+										<div><strong>Applied Generative AI in Software Engineering</strong><span>2025 · 1 offering · 30 students</span></div>
 									</li>
 									<li class="course-item">
 										<span class="course-code">CS499</span>
@@ -227,17 +236,17 @@
 							<h2>Complete Teaching Record</h2>
 							<p>The full CV includes course offerings, enrollment totals, short courses, and additional student-related activities.</p>
 						</div>
-						<a class="teaching-button" href="memorial/MarcoGerosaEnglishCV.pdf">View full CV (PDF)</a>
+						<a class="teaching-button" href="memorial/MarcoGerosaEnglishCV.pdf?v=20260911b">View full CV (PDF)</a>
 					</div>
 				</div>
-			</div>
+			</main>
 			<div class="clear"></div>
 		</div>
 
 		<div id="push"></div> <!-- needed for footer -->
 	</div> <!-- close main wrapper -->
 
-	<div id="footer">
+	<footer id="footer">
 		<div class="centralizer-wrap">
 			<div id="clustrmaps-widget"></div>
 			<div class="footerbox address">
@@ -273,14 +282,14 @@
  			<!--<div class="footerbox somenumbers">
 				<b>Some numbers:</b> <small>(07/2017)</small><br/>
 				<a href="https://scholar.google.com/citations?user=kjtuhEQAAAAJ" target="_new">H-index: 60 (Google Scholar)</a><br/>
-				<a href="publications.html">Published works: 335</a><br/>
+				<a href="publications.html">Published works: 342</a><br/>
 				<a href="advising.html">Ph.D. graduates: 13</a><br/>
 				<a href="career.html#somenumbers">More...</a><br/>
 			</div>-->
 				<!--<script type="text/javascript">var _clustrmaps = {'url' : 'http://www.ime.usp.br/~gerosa', 'user' : 1132202, 'server' : '2', 'id' : 'clustrmaps-widget', 'version' : 1, 'date' : '2014-02-13', 'lang' : 'en', 'corners' : 'square' };(function (){ var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'http://www2.clustrmaps.com/counter/map.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);})();</script><noscript><a href="http://www2.clustrmaps.com/user/5de1146aa"><img src="http://www2.clustrmaps.com/stats/maps-no_clusters/www.ime.usp.br-~gerosa-thumb.jpg" alt="Locations of visitors to this page" /></a></noscript>-->
 			<div class="clear"></div>
 		</div>
-	</div>
+	</footer>
 
 </body>
 </html>

@@ -20,7 +20,7 @@
 	<meta name="twitter:title" content="Funding | Marco Aurélio Gerosa" />
 	<meta name="twitter:description" content="Research grants and intramural awards in software engineering, AI, and computing education." />
 	<meta name="twitter:image" content="https://www.marcoagerosa.com/images/Marco_Gerosa.jpg" />
-	<link href="style.css?v=20260813c" rel="stylesheet" type="text/css" />
+	<link href="style.css?v=20260911e" rel="stylesheet" type="text/css" />
 	<script src="scripts/syze.min.js"></script>
 	<script>
 		syze.sizes(480, 600, 768, 1024);
@@ -33,15 +33,17 @@
 		gtag('js', new Date());
 		gtag('config', 'G-M0B745E5WX');
 	</script>
+	<script src="scripts/site.js?v=20260911e" defer></script>
 </head>
 
 <body>
-	<div id="wrapper">	
+	<a class="skip-link" href="#content">Skip to content</a>
+	<div id="wrapper">
 		<div class="full-width-header">
 			<div class="centralizer-wrap">
 				<div id="topbar">
 					<div id="sitename">
-						<div id="top-esq"> 
+						<div id="top-esq">
 							<a href="/">Marco Aurélio Gerosa
 							<br/>
 							<span class="subtitle">Northern Arizona University (NAU)</span></a>
@@ -56,9 +58,11 @@
 
 		<div class="centralizer-wrap">
 			<div id="sidebar">
+				<nav aria-label="Main navigation">
+				<button class="menu-toggle" type="button" aria-expanded="true" aria-controls="menu" hidden>Menu <span aria-hidden="true">☰</span></button>
 				<ul id="menu">
 					<li>
-						<h2>Menu</h2>
+						<span class="menu-heading">Menu</span>
 					</li>
 					<li>
 						<ul>
@@ -67,7 +71,7 @@
 						<li><a href="cv.html">CV</a></li>
 						<li><a href="research.html">Research</a></li>
 						<li><a href="publications.html">Publications</a></li>
-						<li class="selected"><a href="funding.html">Funding</a></li>
+						<li class="selected"><a aria-current="page" href="funding.html">Funding</a></li>
 						<li><a href="awards.html">Awards</a></li>
 						<li><a href="advising.html">Advising</a></li>
 						<li><a href="teaching.html">Teaching</a></li>
@@ -79,8 +83,9 @@
 						</ul>
 					</li>
 				</ul>
+				</nav>
 				<br/>
-				<!--<div id="sidehighlight"> 
+				<!--<div id="sidehighlight">
 					<a href="http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=35917" target="_new"><img src="images/JISA.jpg" style="width: 107px; height: 142px"/><br/>
 					CFP: Special Issue on "Software Engineering from a Social Network Perspective". Deadline <div id="sidehighlight2">Oct 15.</div></a>
 				</div>-->
@@ -94,13 +99,15 @@
 
 			</div>
 
-			<div id="content">
+			<main id="content" tabindex="-1">
 				<div class="funding-page">
 					<header class="page-hero">
-						<h2>Funding</h2>
-						<span class="page-updated">Last update: August 2026</span>
+						<h1 class="page-title">Funding</h1>
+						<span class="page-updated">Last update: September 2026</span>
 					</header>
-					
+
+					<p class="funding-acknowledgment">I am very grateful for all the financial support I have received. It has been crucial to carrying out my research projects.</p>
+
 					<section class="page-section">
 					<h2>Research grants as PI, Co-PI, or senior personnel</h2>
 					
@@ -151,21 +158,21 @@
 							<strong class="funding-title">CHS: Large: Gender-Inclusive Open Source through Gender-Inclusive Tools</strong>
 							<span class="funding-source">National Science Foundation (NSF) · Grants 1900903 and 1901031</span>
 							<span class="funding-details"><span>Role: <b>Co-PI</b></span><span>Total award: <b>$1.4 million</b></span></span>
-							<span class="funding-share">My portion: $529,000</span>
+							<span class="funding-share">NAU portion: $529,000</span>
 						</li>
 						<li>
 							<span class="funding-period">2019–2020</span>
 							<strong class="funding-title">Development of Cost-Effective Sensing Systems and Analytics (CeSSA) to Monitor Roadway Conditions and Mobility Safety</strong>
 							<span class="funding-source">U.S. Department of Transportation</span>
 							<span class="funding-details"><span>Role: <b>Co-PI</b></span><span>Total award: <b>$92,000</b></span></span>
-							<span class="funding-share">My portion: $30,512</span>
+							<span class="funding-share">NAU portion: $30,512</span>
 						</li>
 						<li>
 							<span class="funding-period">2018–2022</span>
 							<strong class="funding-title">CHS: SHF: Small: Collaborative Research: Scaffolding Skill Acquisition to Onboard OSS Ecosystems</strong>
 							<span class="funding-source">National Science Foundation (NSF) · Grants 1815503 and 1815486</span>
 							<span class="funding-details"><span>Role: <b>Lead PI</b></span><span>Total award: <b>$500,000</b></span></span>
-							<span class="funding-share">My portion: $250,000</span>
+							<span class="funding-share">NAU portion: $250,000</span>
 						</li>
 
 
@@ -264,118 +271,29 @@
 					</ul>
 					</section>
 
-<!--
 
-					<li><strong><a href="http://www.fapesp.br/">FAPESP</a> Regular project 2014/21899-4</strong> (R$ 81.500,00) - 
-					2015-2017<br>
-					"Software engineering newcomers’ barriers and motivations to onboard open source software projects"
-
-					<li><strong><a href="http://www.hpe.com/br/">HP</a>-USP Research agreement</strong> (R$ 600.000,00) - 
-					2015-2016<br>
-					"High performance applications for smart cities with “The Machine:” Modeling, simulation, and development"
-
-					<li><strong><a href="http://www.cnpq.br/">CNPq</a> Edital Universal 477831/2013-3</strong> (R$ 21.000,00) - 
-					2013-2015<br>
-					"Newcomers support in open source software projects"
-
-					<li><strong><a href="http://www.prp.usp.br/">PRP-USP</a> Programa de Incentivo à Pesquisa</strong> (R$ 740.000,00) - 2012-2015<br>
-					"NAWEB - Núcleo de Pesquisa em Ambientes Colaborativos na Web" (<i>Research Center on Collaborative Environments on the Web</i>)
- 
-					<li><strong><a href="http://www.cnpq.br/">CNPq</a> productivity grant 308613/2012-0</strong> (R$ 39.600,00) - 2013-2016
-					"Análise sociotécnica do desenvolvimento de software por meio de mineração de repositórios"
-
-					<li><strong><a href="http://www.fapesp.br/">FAPESP</a> projeto regular 2010/06897-4</strong> (R$ 166.300,00) - 2011-2013<br>
-					"Suporte à Interação Social e Inteligência Coletiva na Web 2.0"
-
-					<li><strong><a href="http://www.rnp.br/">RNP</a> Grupo de Trabalho (GT)</strong> (R$ 160.900,00) - 2009-2010<br>
-					"GT CWTools: Componentes de Software para Interação Social e Inteligência Coletiva"
-
-					<li><strong><a href="http://www.cnpq.br/">CNPq</a> Productivity Grant 303649/2009-7</strong> (R$ 39.600,00) - 2010-2012
-					"Groupware Workbench: Montagem de Sistemas Colaborativos para Novas Mídias de Interação"
-
-					<li><strong><a href="http://www.cnpq.br/">CNPq</a> Edital Universal 472410/2008-3</strong> (R$ 160.900,00) - 2008-2010 <br>
-					"Estendendo Componentes de Software para Construção de Sistemas Colaborativos para TV Digital"
-
-					<li><strong><a href="http://www.fapes.es.gov.br/">FAPES</a> Edital Universal 38874849/2007</strong> (R$ 34.500,00) - 2007-2009<br>
-					"Ensino-Aprendizagem Através da TV Digital: Integração do Ambiente AulaNet com o Middleware Ginga"
-					</ul>
-					</section>
 
 					<section class="page-section">
 						<h2>Recent intramural awards</h2>
 						<ul class="funding-list compact">
-							<li>
-								<span class="funding-period">2026</span>
-								<strong class="funding-title">AI-Powered Interview Training for Software Engineering Students</strong>
-								<span class="funding-source">NAU TRAIL Instructional Innovation</span>
-								<span class="funding-details"><span>Award: <b>$5,000</b></span></span>
-							</li>
-							<li>
-								<span class="funding-period">2025</span>
-								<strong class="funding-title">LLM-Supported Feedback and Exploration of Software Design Trade-offs</strong>
-								<span class="funding-source">NAU TRAIL Instructional Innovation</span>
-								<span class="funding-details"><span>Award: <b>$5,000</b></span></span>
-							</li>
-							<li>
-								<span class="funding-period">2025</span>
-								<strong class="funding-title">Can AI Replace Human Subjects in Software Engineering Research?</strong>
-								<span class="funding-source">NAU TRAIL Research</span>
-								<span class="funding-details"><span>Award: <b>$5,000</b></span></span>
-							</li>
-							<li>
-								<span class="funding-period">2025</span>
-								<strong class="funding-title">Integrating AI Agents into a Course-based Undergraduate Research Experience</strong>
-								<span class="funding-source">NAU OURCA</span>
-								<span class="funding-details"><span>Award: <b>$7,000</b></span></span>
-							</li>
-							<li>
-								<span class="funding-period">2024</span>
-								<strong class="funding-title">Using LLMs to Explore Software Design and Architecture</strong>
-								<span class="funding-source">NAU TRAIL</span>
-								<span class="funding-details"><span>Award: <b>$5,000</b></span></span>
-							</li>
-						</ul>
-					</section>
-				</div>
-	
-					<p></p>
-					<h2>Research grant's collaborator/participant</h2>
-					<ul id="lista3">
-
-					<li><strong><a href="http://ec.europa.eu/research/fp7/">European Comission</a> FP7</strong> (R$ 1.651.000,00) - 2010-2013<br>
-					"CHOReOS: Large Scale Choreographies for the Future Internet". Coordinator@USP: Fabio Kon
-
-					<li><strong><a href="http://www.hp.com.br/">HP</a> (R$ 560.600,00)</strong> - 2010-2012<br>
-					"Baile: Enabling Scalable Cloud Services Choreography". Coordinator:  Fabio Kon
-
-					<li><strong><a href="http://www.fapesp.br/">FAPESP</a> projeto regular 2009/18342-0</strong> (R$ 176.000,00) - 2010-2012
-					"Rede social Arquigrafia-Brasil: estudos fotográficos da arquitetura brasileira na web 2.0". Coordinator: Artur Rozestraten
-
-					<li><strong><a href="http://www.fundacaoaraucaria.org.br/">Fundação Araucária</a> 344/2012</strong> (R$ 8.920,00) - 2012-2014
-					"Análise de redes sociais de desenvolvedores para predição de bugs em projetos de software". Coordinator: Reginaldo Ré
--->
-
-					<section class="page-section">
-						<h2>Recent intramural awards</h2>
-						<ul class="funding-list compact">
-							<li>2026 - AI-Powered Interview Training for Software Engineering Students<br><strong>NAU TRAIL Instructional Innovation</strong> – $5,000</li>
-							<li>2025 - LLM-Supported Feedback and Exploration of Software Design Trade-offs<br><strong>NAU TRAIL Instructional Innovation</strong> – $5,000</li>
-							<li>2025 - Can AI Replace Human Subjects in Software Engineering Research?<br><strong>NAU TRAIL Research</strong> – $5,000</li>
-							<li>2025 - Integrating AI Agents into a Course-based Undergraduate Research Experience<br><strong>NAU OURCA</strong> – $7,000</li>
-							<li>2024 - Using LLMs to Explore Software Design and Architecture<br><strong>NAU TRAIL</strong> – $5,000</li>
+							<li><span class="funding-period">2026</span><strong class="funding-title">AI-Powered Interview Training for Software Engineering Students</strong><span class="funding-source">NAU TRAIL Instructional Innovation</span><span class="funding-details"><span>Award: <b>$5,000</b></span></span></li>
+							<li><span class="funding-period">2025</span><strong class="funding-title">LLM-Supported Feedback and Exploration of Software Design Trade-offs</strong><span class="funding-source">NAU TRAIL Instructional Innovation</span><span class="funding-details"><span>Award: <b>$5,000</b></span></span></li>
+							<li><span class="funding-period">2025</span><strong class="funding-title">Can AI Replace Human Subjects in Software Engineering Research?</strong><span class="funding-source">NAU TRAIL Research</span><span class="funding-details"><span>Award: <b>$5,000</b></span></span></li>
+							<li><span class="funding-period">2025</span><strong class="funding-title">Integrating AI Agents into a Course-based Undergraduate Research Experience</strong><span class="funding-source">NAU OURCA</span><span class="funding-details"><span>Award: <b>$7,000</b></span></span></li>
+							<li><span class="funding-period">2024</span><strong class="funding-title">Using LLMs to Explore Software Design and Architecture</strong><span class="funding-source">NAU TRAIL</span><span class="funding-details"><span>Award: <b>$5,000</b></span></span></li>
 						</ul>
 					</section>
 				</div>
 
 
-			</div>
+			</main>
 			<div class="clear"></div>
 		</div>
 
 		<div id="push"></div> <!-- needed for footer -->
 	</div> <!-- close main wrapper -->
 
-	<div id="footer">
+	<footer id="footer">
 		<div class="centralizer-wrap">
 			<div id="clustrmaps-widget"></div>
 			<div class="footerbox address">
@@ -411,14 +329,14 @@
  			<!--<div class="footerbox somenumbers">
 				<b>Some numbers:</b> <small>(07/2017)</small><br/>
 				<a href="https://scholar.google.com/citations?user=kjtuhEQAAAAJ" target="_new">H-index: 60 (Google Scholar)</a><br/>
-				<a href="publications.html">Published works: 335</a><br/>
+				<a href="publications.html">Published works: 342</a><br/>
 				<a href="advising.html">Ph.D. graduates: 13</a><br/>
 				<a href="career.html#somenumbers">More...</a><br/>
 			</div>-->
 				<!--<script type="text/javascript">var _clustrmaps = {'url' : 'http://www.ime.usp.br/~gerosa', 'user' : 1132202, 'server' : '2', 'id' : 'clustrmaps-widget', 'version' : 1, 'date' : '2014-02-13', 'lang' : 'en', 'corners' : 'square' };(function (){ var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'http://www2.clustrmaps.com/counter/map.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);})();</script><noscript><a href="http://www2.clustrmaps.com/user/5de1146aa"><img src="http://www2.clustrmaps.com/stats/maps-no_clusters/www.ime.usp.br-~gerosa-thumb.jpg" alt="Locations of visitors to this page" /></a></noscript>-->
 			<div class="clear"></div>
 		</div>
-	</div>
+	</footer>
 
 </body>
 </html>

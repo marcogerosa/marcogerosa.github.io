@@ -20,7 +20,7 @@
 	<meta name="twitter:title" content="Contact | Marco Aurélio Gerosa" />
 	<meta name="twitter:description" content="Contact information and office location at Northern Arizona University." />
 	<meta name="twitter:image" content="https://www.marcoagerosa.com/images/Marco_Gerosa.jpg" />
-	<link href="style.css?v=20260813c" rel="stylesheet" type="text/css" />
+	<link href="style.css?v=20260912-contact" rel="stylesheet" type="text/css" />
 	<script src="scripts/syze.min.js"></script>
 	<script>
 		syze.sizes(480, 600, 768, 1024);
@@ -33,15 +33,17 @@
 		gtag('js', new Date());
 		gtag('config', 'G-M0B745E5WX');
 	</script>
+	<script src="scripts/site.js?v=20260911e" defer></script>
 </head>
 
 <body>
-	<div id="wrapper">	
+	<a class="skip-link" href="#content">Skip to content</a>
+	<div id="wrapper">
 		<div class="full-width-header">
 			<div class="centralizer-wrap">
 				<div id="topbar">
 					<div id="sitename">
-						<div id="top-esq"> 
+						<div id="top-esq">
 							<a href="/">Marco Aurélio Gerosa
 							<br/>
 							<span class="subtitle">Northern Arizona University (NAU)</span></a>
@@ -56,9 +58,11 @@
 
 		<div class="centralizer-wrap">
 			<div id="sidebar">
+				<nav aria-label="Main navigation">
+				<button class="menu-toggle" type="button" aria-expanded="true" aria-controls="menu" hidden>Menu <span aria-hidden="true">☰</span></button>
 				<ul id="menu">
 					<li>
-						<h2>Menu</h2>
+						<span class="menu-heading">Menu</span>
 					</li>
 					<li>
 						<ul>
@@ -75,12 +79,13 @@
 						<!-- <li><a href="software.html">Software</a></li> -->
 						<li><a href="service.html">Service</a></li>
 						<!-- <li><a href="miscellaneous.html">Miscellaneous</a></li> -->
-						<li class="selected"><a href="contact.html">Contact</a></li>
+						<li class="selected"><a aria-current="page" href="contact.html">Contact</a></li>
 						</ul>
 					</li>
 				</ul>
+				</nav>
 				<br/>
-				<!--<div id="sidehighlight"> 
+				<!--<div id="sidehighlight">
 					<a href="http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=35917" target="_new"><img src="images/JISA.jpg" style="width: 107px; height: 142px"/><br/>
 					CFP: Special Issue on "Software Engineering from a Social Network Perspective". Deadline <div id="sidehighlight2">Oct 15.</div></a>
 				</div>-->
@@ -94,17 +99,19 @@
 
 			</div>
 
-			<div id="content">
+			<main id="content" tabindex="-1">
 				<div class="contact-page">
 					<header class="page-hero">
-						<h2>Contact</h2>
-						<div class="page-updated">Last update: August 2026</div>
+						<h1 class="page-title">Contact</h1>
+						<div class="page-updated">Last update: September 2026</div>
 					</header>
 
 					<div class="contact-grid">
 						<section class="contact-card contact-card-primary" aria-labelledby="contact-email-heading">
-							<span class="contact-label">Email</span>
-							<h2 id="contact-email-heading">Marco.Gerosa@nau.edu</h2>
+							<div class="contact-email-details">
+								<span class="contact-label">Email</span>
+								<h2 id="contact-email-heading">Marco.Gerosa@nau.edu</h2>
+							</div>
 							<a class="page-button" href="mailto:Marco.Gerosa@nau.edu">Send an email</a>
 						</section>
 
@@ -125,14 +132,14 @@
 						</section>
 					</div>
 				</div>
-			</div>
+			</main>
 			<div class="clear"></div>
 		</div>
 
 		<div id="push"></div> <!-- needed for footer -->
 	</div> <!-- close main wrapper -->
 
-	<div id="footer">
+	<footer id="footer">
 		<div class="centralizer-wrap">
 			<div id="clustrmaps-widget"></div>
 			<div class="footerbox address">
@@ -146,7 +153,6 @@
 			<div class="footerbox contact">
 				<ul>
 					<li>Email: Marco.Gerosa@nau.edu</li>
-					<li>Voice: +1 928-523-8860</li>
 					<li>Office: 207, bld #90</li>
 					<li>PO Box 5693 <br>ZIP 86011</li>
 				</ul>
@@ -168,14 +174,14 @@
  			<!--<div class="footerbox somenumbers">
 				<b>Some numbers:</b> <small>(07/2017)</small><br/>
 				<a href="https://scholar.google.com/citations?user=kjtuhEQAAAAJ" target="_new">H-index: 60 (Google Scholar)</a><br/>
-				<a href="publications.html">Published works: 335</a><br/>
+				<a href="publications.html">Published works: 342</a><br/>
 				<a href="advising.html">Ph.D. graduates: 13</a><br/>
 				<a href="career.html#somenumbers">More...</a><br/>
 			</div>-->
 				<!--<script type="text/javascript">var _clustrmaps = {'url' : 'http://www.ime.usp.br/~gerosa', 'user' : 1132202, 'server' : '2', 'id' : 'clustrmaps-widget', 'version' : 1, 'date' : '2014-02-13', 'lang' : 'en', 'corners' : 'square' };(function (){ var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'http://www2.clustrmaps.com/counter/map.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);})();</script><noscript><a href="http://www2.clustrmaps.com/user/5de1146aa"><img src="http://www2.clustrmaps.com/stats/maps-no_clusters/www.ime.usp.br-~gerosa-thumb.jpg" alt="Locations of visitors to this page" /></a></noscript>-->
 			<div class="clear"></div>
 		</div>
-	</div>
+	</footer>
 
 </body>
 </html>
