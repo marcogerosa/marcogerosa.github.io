@@ -7,6 +7,8 @@
 	}
 
 	var venueAliases = [
+		[/Workshop of Global Software Development in a CSCW perspective/i, "NEXGSD"],
+		[/Electronic Communications of the EASST/i, "EASST"],
 		[/Empirical Software Engineering/i, "EMSE"],
 		[/Transactions on Software Engineering and Methodology/i, "TOSEM"],
 		[/Information and Software Technology/i, "IST"],
@@ -53,6 +55,7 @@
 		"CONVERSATION": "International Workshop on Chatbot Research",
 		"CONVERSATIONS": "International Workshop on Chatbot Research",
 		"CRIWG": "International Conference on Collaboration and Technology",
+		"CRWIG": "International Conference on Collaboration and Technology",
 		"CSAC": "International Workshop on Computer Supported Activity Coordination",
 		"CSCL": "International Conference on Computer-Supported Collaborative Learning",
 		"CSCW": "ACM Conference on Computer-Supported Cooperative Work and Social Computing",
@@ -62,6 +65,7 @@
 		"CUI": "ACM Conference on Conversational User Interfaces",
 		"CompEd": "ACM Global Computing Education Conference",
 		"EMSE": "Empirical Software Engineering",
+		"EASST": "Electronic Communications of the EASST",
 		"ESEJ": "Empirical Software Engineering Journal",
 		"ESELAW": "Experimental Software Engineering Latin American Workshop",
 		"ESEM": "ACM/IEEE International Symposium on Empirical Software Engineering and Measurement",
@@ -89,6 +93,7 @@
 		"IST": "Information and Software Technology",
 		"ITiCSE": "ACM Conference on Innovation and Technology in Computer Science Education",
 		"IWPSE": "International Workshop on Principles of Software Evolution",
+		"IWPSE-EVOL": "International Workshop on Principles of Software Evolution and ERCIM Workshop on Software Evolution",
 		"IWPSE-EVOL '11": "International Workshop on Principles of Software Evolution and ERCIM Workshop on Software Evolution",
 		"JBCS": "Journal of the Brazilian Computer Society",
 		"JCSCW": "Computer Supported Cooperative Work",
@@ -135,13 +140,22 @@
 	}
 
 	function getVenue(rawVenue, fullText, year) {
-		var venue = clean(rawVenue).replace(/[.,;:]+$/g, "");
+		var venue = clean(rawVenue).replace(/[.,;:]+$/g, "").replace(/^\((.*)\)$/, "$1");
+		// CV citations include mixed-case acronyms and compact edition labels.
+		var knownVenues = Object.keys(venueFullNames).sort(function (a, b) { return b.length - a.length; });
+		for (var k = 0; k < knownVenues.length; k += 1) {
+			var key = knownVenues[k];
+			var suffix = venue.slice(key.length);
+			if (venue.indexOf(key) === 0 && (!suffix || /^(?:\s+|-\d|\d)/.test(suffix))) {
+				return key.replace(/\s+'\d{2}$/, "") + " " + year;
+			}
+		}
 		var source = venue || fullText;
 		var withYear = source.match(/\b((?:(?:ACM|IEEE)\s+)?[A-Z][A-Z/&.-]{1,14}(?:\s+[A-Z][A-Z/&.-]{1,14}){0,2})\s+(20\d{2})\b/);
 		var acronym = source.match(/\(([A-Z][A-Z/&.-]{1,14})\)/);
 
 		if (withYear) {
-			return clean(withYear[1]) + " " + withYear[2];
+			return clean(withYear[1]) + " " + year;
 		}
 
 		if (venue && acronym) {
@@ -167,7 +181,7 @@
 
 	function getVenueFullName(venue, rawVenue) {
 		var label = clean(venue).replace(/\s+(?:19|20)\d{2}$/i, "").replace(/[.,;:]+$/g, "");
-		var raw = clean(rawVenue).replace(/^[“"]|[”"]$/g, "").replace(/[.,;:]+$/g, "");
+		var raw = clean(rawVenue).replace(/^[“"]|[”"]$/g, "").replace(/[.,;:]+$/g, "").replace(/^\((.*)\)$/, "$1");
 		var acronym = raw.match(/\(([A-Z][A-Z/&.-]{1,14})\)/);
 		var key = acronym ? acronym[1] : label;
 
@@ -202,25 +216,28 @@
 
 		var text = clean(citationLink.textContent);
 		var yearsInCitation = text.match(/\b(?:19|20)\d{2}\b/g);
-		var publicationYear = year === "2010 and earlier" && yearsInCitation ? yearsInCitation[yearsInCitation.length - 1] : year;
+		var publicationYear = item.getAttribute("data-publication-year") || (year === "2010 and earlier" && yearsInCitation ? yearsInCitation[yearsInCitation.length - 1] : year);
 		var quoteMatch = text.match(/[“"](.+?)[”"]/);
 		var doiMatch = text.match(/10\.\d{4,9}\/[-._;()/:A-Z0-9]+/i);
-		var title = quoteMatch ? clean(quoteMatch[1]) : text;
+		var title = quoteMatch ? clean(quoteMatch[1]).replace(/[,;]+$/, "") : text;
 		var verifiedDoi = window.publicationDois && window.publicationDois[normalizeTitle(title)];
-		var doi = verifiedDoi || (doiMatch ? doiMatch[0].replace(/[.,;]+$/g, "") : "");
+		// CV-backed records use only the DOI supplied in the current CV.
+		var doi = doiMatch ? doiMatch[0].replace(/[.,;]+$/g, "") : (item.hasAttribute("data-cv-id") ? "" : verifiedDoi || "");
 		// Preserve the CV's DOI identifier when its resolver is unavailable.
 		var doiUnavailable = item.getAttribute("data-doi-unavailable") === "true";
 		var recordHref = item.getAttribute("data-record-href") || "";
-		var authors = quoteMatch ? clean(text.slice(0, quoteMatch.index).replace(/,\s*$/, "")) : "";
+		var authors = quoteMatch ? clean(text.slice(0, quoteMatch.index).replace(/[,\s]*\((?:19|20)\d{2}\)[.,\s]*$/, "").replace(/,\s*$/, "")) : "";
 		var venueMarker = item.querySelector("strong, b");
 		var venue = getVenue(venueMarker ? venueMarker.textContent : "", text, publicationYear);
 		var venueFullName = getVenueFullName(venue, venueMarker ? venueMarker.textContent : "");
 		var href = citationLink.getAttribute("href") || "";
 		var isPdf = /\.pdf(?:$|[?#])/i.test(href);
+		// Award labels are verified against the CV's Awards and Honors section.
+		var award = clean(item.getAttribute("data-publication-award"));
 
 		item.removeAttribute("id");
 		item.className = "publication-item";
-		item.setAttribute("data-search", normalizeTitle([title, authors, venue, venueFullName, doi, publicationYear].join(" ")));
+		item.setAttribute("data-search", normalizeTitle([title, authors, venue, venueFullName, doi, publicationYear, award].join(" ")));
 
 		var article = createElement("article", "publication-card");
 		if (isPdf) {
@@ -266,6 +283,14 @@
 		details.appendChild(venueLabel);
 		details.appendChild(venueName);
 		body.appendChild(details);
+		if (award) {
+			var awardLabel = createElement("div", "publication-award");
+			var awardIcon = createElement("span", "publication-award-icon", "🏆");
+			awardIcon.setAttribute("aria-hidden", "true");
+			awardLabel.appendChild(awardIcon);
+			awardLabel.appendChild(createElement("span", "publication-award-label", award));
+			body.appendChild(awardLabel);
+		}
 		article.appendChild(body);
 
 		var actions = createElement("div", "publication-actions");
@@ -291,7 +316,7 @@
 		citeButton.type = "button";
 		citeButton.setAttribute("aria-label", "Cite: " + title);
 		citeButton.addEventListener("click", function () {
-			var citation = text.replace(/\s*DOI\s*:\s*10\.\d{4,9}\/\S+\s*\.?$/i, "").trim();
+			var citation = text.replace(/\s*DOI\s*:\s*10\.\d{4,9}\/[-._;()/:A-Z0-9]+/i, "").trim();
 			if (citation.indexOf(publicationYear) === -1) { citation = citation.replace(/[.,;]+$/, "") + " (" + publicationYear + ")."; }
 			if (doi) { citation += doiUnavailable ? " DOI: " + doi : " https://doi.org/" + doi; }
 			citationText.value = citation;
@@ -379,15 +404,20 @@
 	});
 
 	var yearNavigation = document.getElementById("publication-years");
-	yearHeadings.slice(0, 7).forEach(function (heading) {
-		var yearLink = createElement("a", "publication-year-link", clean(heading.textContent));
-		yearLink.setAttribute("href", "#" + heading.id);
-		yearNavigation.appendChild(yearLink);
-	});
-	if (yearHeadings.length > 7) {
-		var earlierLink = createElement("a", "publication-year-link", "Earlier");
-		earlierLink.setAttribute("href", "#" + yearHeadings[7].id);
-		yearNavigation.appendChild(earlierLink);
+	function updateYearNavigation(isFiltering) {
+		yearNavigation.textContent = "";
+		var headings = isFiltering ? yearHeadings.filter(function (heading) { return !heading.hidden; }) : yearHeadings.slice(0, 7);
+		headings.forEach(function (heading) {
+			var yearLink = createElement("a", "publication-year-link", clean(heading.textContent));
+			yearLink.setAttribute("href", "#" + heading.id);
+			yearNavigation.appendChild(yearLink);
+		});
+		if (!isFiltering && yearHeadings.length > 7) {
+			var earlierLink = createElement("a", "publication-year-link", "Earlier");
+			earlierLink.setAttribute("href", "#" + yearHeadings[7].id);
+			yearNavigation.appendChild(earlierLink);
+		}
+		yearNavigation.hidden = !yearNavigation.children.length;
 	}
 
 	var search = document.getElementById("publication-search");
@@ -418,6 +448,7 @@
 			}
 		});
 
+		updateYearNavigation(Boolean(query));
 		results.textContent = query ? visibleCount + (visibleCount === 1 ? " match" : " matches") : publicationItems.length + " selected papers";
 	}
 

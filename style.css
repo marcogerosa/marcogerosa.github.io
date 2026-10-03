@@ -1026,7 +1026,7 @@ h1, h2, h3, h4, h5 {
 	margin: 0 0 7px;
 	padding: 0;
 	color: #1a5276;
-	font-size: 16px;
+	font-size: 15px;
 	line-height: 1.35;
 }
 
@@ -1038,7 +1038,8 @@ h1, h2, h3, h4, h5 {
 	margin: 0;
 	padding: 7px 0;
 	border-top: 1px solid #edf1f3;
-	line-height: 1.35;
+	font-size: 14px;
+	line-height: 1.55;
 }
 
 .career-section .position:first-of-type {
@@ -1051,7 +1052,7 @@ h1, h2, h3, h4, h5 {
 	border-radius: 12px;
 	background: #f0f3f5;
 	color: #56636b;
-	font-size: 12px;
+	font-size: 13px;
 	font-weight: bold;
 	white-space: nowrap;
 }
@@ -1188,6 +1189,13 @@ h1, h2, h3, h4, h5 {
 	padding: 0;
 	color: #1a5276;
 	font-size: 13px;
+}
+
+.career-highlight-detail h3 a {
+	color: inherit;
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.18em;
 }
 
 #content .career-highlight-detail p {
@@ -1397,6 +1405,7 @@ a:focus {
 .service-hero::after,
 .teaching-hero::after {
 	position: absolute;
+	pointer-events: none;
 	top: -46px;
 	right: -32px;
 	width: 150px;
@@ -1878,6 +1887,7 @@ a:focus {
 
 .earlier-projects #lista {
 	display: grid;
+	font-size: 15px;
 	grid-template-columns: 1fr;
 	gap: 8px;
 	margin: 0;
@@ -2153,6 +2163,12 @@ a:focus {
 	padding: 0;
 	border: 0;
 	color: var(--navy);
+}
+
+#content .career-bio > p:not(.career-keywords) {
+	font-size: 15px;
+	line-height: 1.6;
+	color: #455b67;
 }
 
 .career-keywords {
@@ -2581,6 +2597,31 @@ a:focus {
 	line-height: 1.4;
 }
 
+.publication-award {
+	display: inline-flex;
+	align-items: flex-start;
+	gap: 6px;
+	max-width: 100%;
+	box-sizing: border-box;
+	margin-top: 8px;
+	padding: 4px 8px;
+	border: 1px solid #e5d4a6;
+	border-radius: 6px;
+	background: #fff8e6;
+	color: #76520e;
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 1.4;
+}
+
+.publication-award-icon {
+	flex: none;
+}
+
+.publication-award-label {
+	min-width: 0;
+}
+
 .publication-actions {
 	display: flex;
 	align-items: flex-start;
@@ -2589,6 +2630,7 @@ a:focus {
 
 .publication-action {
 	display: inline-block;
+	line-height: inherit;
 	min-width: 36px;
 	padding: 5px 7px;
 	border: 1px solid #cdd9df;
@@ -2817,6 +2859,7 @@ a:focus {
 .service-details summary {
 	padding: 11px 14px;
 	color: #1a5276;
+	font-size: 15px;
 	font-weight: bold;
 	cursor: pointer;
 }
@@ -2828,6 +2871,7 @@ a:focus {
 
 .service-details li {
 	padding: 3px 0;
+	font-size: 15px;
 	line-height: 1.45;
 }
 
@@ -4050,7 +4094,6 @@ body {
 #content .award-honor-card p,
 #content .career-highlight-detail p,
 .awards-archive li,
-.position-period,
 .career-highlight-metric span,
 .career-highlight-metric small {
 	font-size: 14px;
@@ -4272,6 +4315,7 @@ body {
 	padding: 0;
 	list-style: none;
 	border-top: 1px solid var(--line);
+	font-size: 15px;
 }
 
 .research-approach #lista2 li {
@@ -4588,7 +4632,17 @@ main:focus { outline: none; }
 	background: #fff;
 }
 #content .advising-prospective p { font-size: 15px; }
-.advising-current-person strong a { color: var(--navy); }
+.advising-current-person strong a,
+.advising-alumni-list strong a {
+	color: var(--navy);
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.18em;
+}
+.advising-current-person strong a:hover,
+.advising-current-person strong a:focus-visible,
+.advising-alumni-list strong a:hover,
+.advising-alumni-list strong a:focus-visible { color: var(--rust); }
 #content .advising-current-grid .advising-research-focus { margin: 8px 0 0; font-size: 14px; line-height: 1.5; color: #455b67; }
 .research-more {
 	margin-top: 14px;
@@ -4662,4 +4716,52 @@ button.publication-action {
 }
 @media (prefers-reduced-motion: reduce) {
 	*, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+}
+
+/* Shortcuts and supporting evidence for the October 2026 review. */
+.section-navigation {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin: 20px 0 28px;
+}
+.section-navigation a {
+	padding: 8px 12px;
+	border: 1px solid var(--line);
+	border-radius: 6px;
+	color: var(--blue);
+	background: #fff;
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 1.4;
+}
+.section-navigation a:hover,
+.section-navigation a:focus-visible { border-color: var(--blue); background: var(--soft-blue); }
+#content [id] { scroll-margin-top: 20px; }
+.resource-links { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 8px; }
+.resource-links a { font-size: 13px; font-weight: bold; text-decoration: underline; text-underline-offset: 3px; }
+.home-featured { margin-top: 30px; }
+#content .home-featured > h2 { margin: 0 0 16px; padding: 0; border: 0; color: var(--navy); font-size: 23px; }
+.home-featured-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.home-featured-card {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 22px;
+	border: 1px solid var(--line);
+	border-top: 3px solid var(--blue);
+	border-radius: 9px;
+	background: #fff;
+}
+.featured-venue { color: var(--rust); font-size: 12px; font-weight: bold; letter-spacing: .03em; }
+#content .home-featured-card h3 { margin: 12px 0 8px; color: var(--navy); font-size: 18px; line-height: 1.4; }
+#content .home-featured-card p { margin: 0 0 16px; color: #455b67; font-size: 15px; line-height: 1.6; }
+.home-featured-card > a { margin-top: auto; font-size: 14px; font-weight: bold; }
+@media (min-width: 801px) {
+	#sidebar { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow-y: auto; }
+}
+@media (max-width: 800px) {
+	.home-featured-grid { grid-template-columns: 1fr; }
+	.home-featured-card { padding: 18px; }
+	.section-navigation { margin: 16px 0 24px; }
 }
