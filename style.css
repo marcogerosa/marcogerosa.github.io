@@ -2614,6 +2614,12 @@ a:focus {
 	line-height: 1.4;
 }
 
+.publication-award-nomination {
+	border-color: #ccdbe5;
+	background: #eef4f8;
+	color: #38566a;
+}
+
 .publication-award-icon {
 	flex: none;
 }
@@ -4175,6 +4181,12 @@ body {
 .translated-course-list li,
 #content .teaching-record p {
 	font-size: 14px;
+}
+
+#content .teaching-count-note {
+	font-size: 14px;
+	line-height: 1.5;
+	color: #536773;
 }
 
 .footerbox,

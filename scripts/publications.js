@@ -232,12 +232,14 @@
 		var venueFullName = getVenueFullName(venue, venueMarker ? venueMarker.textContent : "");
 		var href = citationLink.getAttribute("href") || "";
 		var isPdf = /\.pdf(?:$|[?#])/i.test(href);
-		// Award labels are verified against the CV's Awards and Honors section.
+		// Recognition labels require paper-specific CV or user-provided evidence.
 		var award = clean(item.getAttribute("data-publication-award"));
+		var nomination = clean(item.getAttribute("data-publication-nomination"));
+		var recognition = award || nomination;
 
 		item.removeAttribute("id");
 		item.className = "publication-item";
-		item.setAttribute("data-search", normalizeTitle([title, authors, venue, venueFullName, doi, publicationYear, award].join(" ")));
+		item.setAttribute("data-search", normalizeTitle([title, authors, venue, venueFullName, doi, publicationYear, recognition].join(" ")));
 
 		var article = createElement("article", "publication-card");
 		if (isPdf) {
@@ -283,12 +285,12 @@
 		details.appendChild(venueLabel);
 		details.appendChild(venueName);
 		body.appendChild(details);
-		if (award) {
-			var awardLabel = createElement("div", "publication-award");
-			var awardIcon = createElement("span", "publication-award-icon", "🏆");
+		if (recognition) {
+			var awardLabel = createElement("div", "publication-award" + (nomination && !award ? " publication-award-nomination" : ""));
+			var awardIcon = createElement("span", "publication-award-icon", nomination && !award ? "☆" : "🏆");
 			awardIcon.setAttribute("aria-hidden", "true");
 			awardLabel.appendChild(awardIcon);
-			awardLabel.appendChild(createElement("span", "publication-award-label", award));
+			awardLabel.appendChild(createElement("span", "publication-award-label", recognition));
 			body.appendChild(awardLabel);
 		}
 		article.appendChild(body);
